@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Genos:ital,wght@0,100..900;1,100..900&family=Gloria+Hallelujah&family=Londrina+Sketch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Globales */
+:root {
+    --amber-100: ##fef9c3;
+    --amber-200: #fde68a;
+    --amber-300: #fde047;
+    --amber-400: #facc15;
+    --amber-500: #eab308;
+    --amber-600: #ca8a04;
+    --amber-700: #a16207;
+    --amber-800: #92400e;
+    --titulo-font: "Cinzel", serif;
+    --principal-font: "Raleway", sans-serif;
+}
+
+body {
+    font-family: var(--principal-font);
+}
+
 .fondo-body {
     background: rgb(254, 243, 199);
     background: radial-gradient(circle, rgba(254, 243, 199, 1) 0%, rgba(253, 224, 71, 1) 100%);
@@ -7,39 +28,12 @@
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
+h1 {
+    font-family: var(--titulo-font);
+}
+
+a {
+    text-decoration: none;
+}
+
 /*----------------------------------------*/
-
-
-
-
-
-
-
-.homeview h2 {
-    font-size: 2.5rem;
-    color: #b45309;
-    text-align: center;
-}
-
-.homeview .buscador form {
-    width: 75%;
-    margin: 0 auto;
-}
-
-.homeview .buscador {
-    background-image: url("../../public/img/fondo_buscador_min.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.homeview .buscador .btn {
-    background-color: #b45309;
-    color: white;
-    transition: all 0.2s ease;
-}
-
-.homeview .buscador .btn:hover {
-    background-color: #f4d760;
-    color: #b45309;
-}

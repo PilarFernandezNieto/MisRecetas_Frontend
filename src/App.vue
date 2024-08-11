@@ -13,3 +13,9 @@ import { RouterLink, RouterView } from 'vue-router'
     </div>
 
 </template>
+
+<style>
+body {
+    font-family: "Raleway", sans-serif;
+}
+</style>

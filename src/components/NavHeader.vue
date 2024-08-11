@@ -3,34 +3,42 @@
 </script>
 
 <template>
-    <header class="bg-white opacity-80 fixed top-0 left-0 w-full">
-        <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
-            <div class="flex lg:flex-1">
-                <a href="#" class="-m-1.5 p-1.5">
-                    <span class="sr-only">MisRecetas</span>
-                    <p class="text-4xl">MisRecetas</p>
-                    <!-- <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="" /> -->
-                </a>
-            </div>
-            <div class="flex lg:hidden">
-                <button type="button"
-                    class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                    @click="mobileMenuOpen = true">
-                    <span class="sr-only">Open main menu</span>
-                    <Bars3Icon class="h-6 w-6" aria-hidden="true" />
-                </button>
-            </div>
-            <div class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Features</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Marketplace</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Company</a>
-            </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span
-                        aria-hidden="true">&rarr;</span></a>
-            </div>
-        </nav>
+    <nav class="navbar navbar-expand-lg z-2 ">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/public/img/logo.png" alt="Bootstrap" class="logo img-fluid">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Recetas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
 
-    </header>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
 </template>
+
+<style scoped>
+.navbar {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar a {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.logo {
+    width: 200px;
+}
+</style>
