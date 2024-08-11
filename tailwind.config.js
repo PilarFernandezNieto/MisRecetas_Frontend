@@ -5,8 +5,13 @@ export default {
     "./src/**/*.{vue,js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "imgHeader": "url('/img/slide.jpg')" 
+      }
+    },
   },
   plugins: [],
+  important: true
 }
 
