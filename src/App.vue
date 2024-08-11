@@ -16,6 +16,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style>
 body {
-    font-family: "Raleway", sans-serif;
+    font-family: var(--principal-font);
+
 }
 </style>

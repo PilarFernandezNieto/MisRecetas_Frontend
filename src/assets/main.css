@@ -22,6 +22,7 @@ body {
 .fondo-body {
     background: rgb(254, 243, 199);
     background: radial-gradient(circle, rgba(254, 243, 199, 1) 0%, rgba(253, 224, 71, 1) 100%);
+    min-height: 100vh;
 }
 
 .shadow {

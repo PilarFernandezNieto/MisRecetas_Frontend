@@ -15,7 +15,7 @@ import { RouterLink } from 'vue-router';
 <style scoped>
 /* Header */
 .imgHeader {
-    background-image: url("../../public/img/slide.jpg");
+    background-image: url("/img/slide.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

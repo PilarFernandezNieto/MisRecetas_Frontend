@@ -1,13 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import Recetas from '@/components/Recetas.vue';
 
 </script>
 
 <template>
-  <main class="p-10 min-vh-100 homeview container">
+  <main class="p-10 homeview container">
     <div class="row justify-content-center">
       <h2 class="py-5 ">Buscador de recetas</h2>
-      <div class="border-0 rounded-2 shadow row w-50 mx-auto buscador">
+      <div class="border-0 rounded-2 shadow row mx-auto buscador">
         <form>
           <div class="row p-3 ">
             <div class="input-group">
@@ -19,7 +20,11 @@ import { RouterLink, RouterView } from 'vue-router'
         </form>
       </div>
     </div>
+    <section class="vh-100">
+      <Recetas />
+    </section>
   </main>
+
 
 </template>
 <style scoped>
@@ -31,16 +36,21 @@ h2 {
   font-family: var(--titulo-font);
 }
 
+section {
+  margin: 8rem 0;
+}
+
 .buscador form {
-  width: 75%;
+  width: 95%;
   margin: 0 auto;
 }
 
 .buscador {
-  background-image: url("/public/img/fondo_buscador_min.jpg");
+  background-image: url("/img/fondo_buscador_min.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  width: 95%;
 }
 
 .buscador .btn {
@@ -51,5 +61,11 @@ h2 {
 
 .buscador .btn:hover {
   background-color: var(--amber-600);
+}
+
+@media (width > 991px) {
+  .buscador {
+    width: 50%;
+  }
 }
 </style>
