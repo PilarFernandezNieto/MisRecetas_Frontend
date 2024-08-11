@@ -5,7 +5,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
     <Header />
-    <div class="bg-gradient-to-b from-amber-100 to-amber-300  w-full mx-auto">
+    <div class="container-fluid fondo-body">
         <div class="container mx-auto">
             <RouterView />
         </div>

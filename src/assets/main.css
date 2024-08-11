@@ -1,3 +1,45 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.fondo-body {
+    background: rgb(254, 243, 199);
+    background: radial-gradient(circle, rgba(254, 243, 199, 1) 0%, rgba(253, 224, 71, 1) 100%);
+}
+
+.shadow {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/*----------------------------------------*/
+
+
+
+
+
+
+
+.homeview h2 {
+    font-size: 2.5rem;
+    color: #b45309;
+    text-align: center;
+}
+
+.homeview .buscador form {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.homeview .buscador {
+    background-image: url("../../public/img/fondo_buscador_min.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homeview .buscador .btn {
+    background-color: #b45309;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.homeview .buscador .btn:hover {
+    background-color: #f4d760;
+    color: #b45309;
+}
