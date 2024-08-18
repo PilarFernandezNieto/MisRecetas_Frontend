@@ -1,5 +1,5 @@
 <script setup>
-import AdminNav from "@/components/AdminNav.vue"
+import AdminNav from "../../components/AdmiNav.vue"
 
 </script>
 <template>

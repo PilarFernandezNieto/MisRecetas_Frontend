@@ -7,24 +7,25 @@ import Recetas from '@/components/Recetas.vue';
 </script>
 
 <template>
-  <main class="p-10 homeview container">
-    <div class="row justify-content-center">
-      <h2 class="py-5 ">Buscador de recetas</h2>
-      <div class="border-0 rounded-2 shadow row mx-auto buscador">
-        <form>
-          <div class="row p-3 ">
-            <div class="input-group">
-              <input id="receta" placeholder="Buscar receta" class="form-control">
-              <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-
+  <main class="p-10 homeview fondo-body">
+    <div class="container">
+      <div class=" row justify-content-center">
+        <h2 class="py-5 ">Buscador de recetas</h2>
+        <div class="border-0 rounded-2 shadow row mx-auto buscador">
+          <form>
+            <div class="row p-3 ">
+              <div class="input-group">
+                <input id="receta" placeholder="Buscar receta" class="form-control">
+                <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
+      <section>
+      <p>aqui va una seleccion de recetas</p>
+      </section>
     </div>
-    <section>
-<p>aqui va una seleccion de recetas</p>
-    </section>
   </main>
 
 
