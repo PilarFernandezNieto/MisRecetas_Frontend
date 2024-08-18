@@ -1,11 +1,15 @@
 <script setup>
+import { RouterView } from 'vue-router';
 
 </script>
 
 <template>
     <div>
-        RecetasLayoutView
+       <h1> RecetasLayoutView</h1>
     </div>
+    <main>
+        <RouterView />
+    </main>
 </template>
 
 

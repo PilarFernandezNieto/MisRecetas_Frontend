@@ -2,6 +2,8 @@
 import { RouterLink, RouterView } from 'vue-router'
 import Recetas from '@/components/Recetas.vue';
 
+
+
 </script>
 
 <template>
@@ -20,8 +22,8 @@ import Recetas from '@/components/Recetas.vue';
         </form>
       </div>
     </div>
-    <section class="vh-100">
-      <Recetas />
+    <section>
+<p>aqui va una seleccion de recetas</p>
     </section>
   </main>
 

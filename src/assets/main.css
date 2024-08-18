@@ -14,7 +14,9 @@
     --titulo-font: "Cinzel", serif;
     --principal-font: "Raleway", sans-serif;
 }
-
+html {
+    min-height: 100%;
+}
 body {
     font-family: var(--principal-font);
 }
