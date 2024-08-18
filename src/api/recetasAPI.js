@@ -9,4 +9,3 @@ export default {
         return api.get(`/recetas/ver-receta?id=${id}`)
     }
 }
-y
