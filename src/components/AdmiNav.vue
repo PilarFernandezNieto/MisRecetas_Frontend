@@ -6,10 +6,10 @@ import Link from './Link.vue';
 
 
 <template>
-    <div class="container-fluid  p-0 admin-nav">
+    <div class="container-fluid  p-0 admin-nav fondo-admin">
    
             <div class="fondo-nav">
-                <ul class="nav justify-content-end nav-underline w-75 mx-auto py-2">
+                <ul class="nav justify-content-center justify-content-md-end nav-underline w-75 mx-auto py-2">
                     <li class="nav-item">
                         <RouterLink :to="{ name: 'ingredientes' }" class="nav-link">Ingredientes</RouterLink>
                     </li>
@@ -20,7 +20,9 @@ import Link from './Link.vue';
                 </ul>
             </div>
     
-        <Link to="home" class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover m-5">Ir a Inicio</Link>
+
+            <Link to="home" class="m-4">Inicio</Link>
+       
         
        
 
@@ -31,7 +33,7 @@ import Link from './Link.vue';
 <style scoped>
 .admin-nav a {
     color: #333;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
 }
 .fondo-nav {
     background: rgb(254, 243, 199);

@@ -1,8 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Genos:ital,wght@0,100..900;1,100..900&family=Gloria+Hallelujah&family=Londrina+Sketch&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
 /* Globales */
 :root {
+    --amber-50: #fffbeb;
     --amber-100: ##fef9c3;
     --amber-200: #fde68a;
     --amber-300: #fde047;
@@ -14,9 +19,7 @@
     --titulo-font: "Cinzel", serif;
     --principal-font: "Raleway", sans-serif;
 }
-html {
-    min-height: 100%;
-}
+
 body {
     font-family: var(--principal-font);
 }
@@ -33,10 +36,16 @@ body {
 
 h1 {
     font-family: var(--titulo-font);
+    font-size: 2.4rem;
 }
 
 a {
     text-decoration: none;
 }
+.fondo-admin {
+    background-color: var(--amber-50);
+  
+}
+
 
 /*----------------------------------------*/

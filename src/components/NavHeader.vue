@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <nav class="navbar navbar-expand-lg z-2 ">
+    <nav class="navbar navbar-expand-lg z-2 navegacion-principal ">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="/img/logo.png" alt="Bootstrap" class="logo img-fluid">
@@ -33,7 +33,7 @@
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.navbar a {
+.navegacion-principal a {
     font-size: 2rem;
     font-weight: 600;
 }

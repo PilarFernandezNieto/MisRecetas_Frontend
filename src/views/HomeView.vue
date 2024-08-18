@@ -25,6 +25,7 @@ import Recetas from '@/components/Recetas.vue';
       <section>
       <p>aqui va una seleccion de recetas</p>
       </section>
+
     </div>
   </main>
 
