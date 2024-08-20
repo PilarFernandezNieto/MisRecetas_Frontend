@@ -1,9 +1,11 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, inject } from 'vue';
 import Link from '@/components/Link.vue';
 import { ingredientesStore } from '@/stores/ingredientes';
 
 const ingredientes = ingredientesStore();
+const toast = inject("toast");
+
 const formData = reactive({
     nombre: "",
     descripcion: ""
@@ -11,12 +13,25 @@ const formData = reactive({
 
 const submitHandler = async (data) => {
     try {
-        await ingredientes.nuevoIngrediente(data)
+        const respuesta = await ingredientes.nuevoIngrediente(data)
+        if (respuesta.resultado !== "error") {
+            toast.open({
+                message: respuesta.msg,
+                type: "success"
+            });
+        } else {
+            toast.open({
+                message: respuesta.msg,
+                type: "error"
+            }); 
+        }
+
+
     } catch (error) {
         console.log(error);
-        
+
     }
-    
+
 }
 
 </script>
@@ -26,24 +41,11 @@ const submitHandler = async (data) => {
 
         <h1 class="text-center">Nuevo Ingrediente</h1>
         <div class="shadow p-5 formulario">
-            <FormKit 
-                type="form" submit-label="Nuevo Ingrediente"
-                incomplete-message="No se puedo enviar, revisa los mensajes"
-
-                @submit="submitHandler"
-              
-                >
-                <FormKit 
-                    type="text" label="Nombre" name="nombre" 
-                    placeholder="Ingrediente" validation="required"
-                    :validation-messages="{ required: 'Campo obligatorio' }"
-                    
-                     />
-                <FormKit 
-                    type="text" label="Descripción" 
-                    name="descripcion" placeholder="Descripcion"
-                 
-                     />
+            <FormKit type="form" submit-label="Nuevo Ingrediente"
+                incomplete-message="No se puedo enviar, revisa los mensajes" @submit="submitHandler">
+                <FormKit type="text" label="Nombre" name="nombre" placeholder="Ingrediente" validation="required"
+                    :validation-messages="{ required: 'Campo obligatorio' }" />
+                <FormKit type="text" label="Descripción" name="descripcion" placeholder="Descripcion" />
 
             </FormKit>
             <Link to="ingredientes" class="row p-0 m-0">Volver</Link>
