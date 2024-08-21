@@ -5,7 +5,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./src/views/admin/NuevoIngredienteView.vue",
     "./formkit.config.js",
     
   ],

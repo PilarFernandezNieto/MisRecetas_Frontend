@@ -1,6 +1,11 @@
 <script setup>
 import Ingrediente from '@/components/Ingrediente.vue';
 import Link from '@/components/Link.vue';
+import { useIngredientesStore } from '@/stores/ingredientes';
+
+const store = useIngredientesStore();
+
+
 
 
 </script>
@@ -8,9 +13,10 @@ import Link from '@/components/Link.vue';
 <template>
  
     <h1 class="mb-5">Lista de ingredientes</h1>
+    <div class="row gap-2 justify-between mb-5">
+    <Ingrediente class="col-6 col-md-2" v-for="ingrediente in store.ingredientes"  :ingrediente="ingrediente" />
+    </div>
     <Link to="nuevo-ingrediente">Nuevo Ingrediente</Link>
-    <Ingrediente class="my-5" />
-
 </template>
 <style scoped>
 a {

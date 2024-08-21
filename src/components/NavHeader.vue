@@ -1,11 +1,12 @@
 <script setup>
+import { RouterLink } from 'vue-router';
 
 </script>
 
 <template>
     <nav class="navbar navbar-expand-lg z-2 navegacion-principal ">
         <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <img src="/img/logo.png" alt="Bootstrap" class="logo img-fluid">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -15,7 +16,7 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Recetas</a>
+                        <RouterLink :to="{name: 'admin'}" class="nav-link active" aria-current="page" href="">Admin</RouterLink>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>

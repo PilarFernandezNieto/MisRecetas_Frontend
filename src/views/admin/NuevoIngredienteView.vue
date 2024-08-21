@@ -1,34 +1,37 @@
 <script setup>
 import { reactive, inject } from 'vue';
+import { reset } from '@formkit/vue';
 import Link from '@/components/Link.vue';
-import { ingredientesStore } from '@/stores/ingredientes';
+import ingredientesAPI from "@/api/ingredientesAPI";
 
-const ingredientes = ingredientesStore();
+
 const toast = inject("toast");
 
-const formData = reactive({
-    nombre: "",
-    descripcion: ""
-})
 
-const submitHandler = async (data) => {
+const submitHandler = async (formData) => {
     try {
-        const respuesta = await ingredientes.nuevoIngrediente(data)
-        if (respuesta.resultado !== "error") {
+        const {data} = await ingredientesAPI.create(formData);
+        console.log(data);
+        
+        if (data.resultado !== "error") {
             toast.open({
-                message: respuesta.msg,
+                message: data.msg,
                 type: "success"
             });
+            reset("ingredienteForm")
         } else {
             toast.open({
-                message: respuesta.msg,
+                message: data.msg,
                 type: "error"
             }); 
         }
 
-
+        
     } catch (error) {
-        console.log(error);
+        toast.open({
+                message: error.response.data.msg,
+                type: "error"
+            }); 
 
     }
 
@@ -41,7 +44,7 @@ const submitHandler = async (data) => {
 
         <h1 class="text-center">Nuevo Ingrediente</h1>
         <div class="shadow p-5 formulario">
-            <FormKit type="form" submit-label="Nuevo Ingrediente"
+            <FormKit id="ingredienteForm" type="form" submit-label="Nuevo Ingrediente"
                 incomplete-message="No se puedo enviar, revisa los mensajes" @submit="submitHandler">
                 <FormKit type="text" label="Nombre" name="nombre" placeholder="Ingrediente" validation="required"
                     :validation-messages="{ required: 'Campo obligatorio' }" />

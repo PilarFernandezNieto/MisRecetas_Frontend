@@ -4,7 +4,7 @@ import AdminNav from "../../components/AdmiNav.vue"
 </script>
 <template>
     <AdminNav />
-<div class="fondo-admin container-fluid min-vh-100">
+<div class="fondo-admin min-vh-100">
 
     
         <div class="container mx-auto">

@@ -39,9 +39,9 @@ h1 {
     font-size: 2.4rem;
 }
 
-a {
+/* a {
     text-decoration: none;
-}
+} */
 .fondo-admin {
     background-color: var(--amber-50);
   
