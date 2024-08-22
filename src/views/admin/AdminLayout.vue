@@ -7,7 +7,7 @@ import AdminNav from "../../components/AdmiNav.vue"
 <div class="fondo-admin min-vh-100">
 
     
-        <div class="container mx-auto">
+        <div class="container mx-auto mb-5">
             <RouterView />
         </div>
 </div>

@@ -13,10 +13,11 @@ const store = useIngredientesStore();
 <template>
  
     <h1 class="mb-5">Lista de ingredientes</h1>
-    <div class="row gap-2 justify-between mb-5">
-    <Ingrediente class="col-6 col-md-2" v-for="ingrediente in store.ingredientes"  :ingrediente="ingrediente" />
-    </div>
     <Link to="nuevo-ingrediente">Nuevo Ingrediente</Link>
+    <div class="row gap-3 mb-5 lista-ingredientes ">
+    <Ingrediente class="col-12 col-md-5" v-for="ingrediente in store.ingredientes"  :ingrediente="ingrediente" />
+    </div>
+   
 </template>
 <style scoped>
 a {
@@ -31,5 +32,8 @@ a {
 }
 a:hover {
     background-color: var(--amber-700);
+}
+.lista-ingredientes {
+justify-content: center;
 }
 </style>
