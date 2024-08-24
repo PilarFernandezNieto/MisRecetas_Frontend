@@ -1,9 +1,19 @@
 <script setup>
-import Ingrediente from '@/components/Ingrediente.vue';
 import Link from '@/components/Link.vue';
 import { useIngredientesStore } from '@/stores/ingredientes';
+import DataTable from 'datatables.net-vue3';
+import DataTablesCore from "datatables.net-bs5"
+
+DataTable.use(DataTablesCore)
+
+ 
+
 
 const store = useIngredientesStore();
+const columns = [
+  { data: 'nombre', title: 'Nombre' },
+  { data: 'descripcion', title: 'Descripcion' }
+];
 
 
 
@@ -15,7 +25,12 @@ const store = useIngredientesStore();
     <h1 class="mb-5">Lista de ingredientes</h1>
     <Link to="nuevo-ingrediente">Nuevo Ingrediente</Link>
     <div class="row gap-3 mb-5 lista-ingredientes ">
-    <Ingrediente class="col-12 col-md-5" v-for="ingrediente in store.ingredientes"  :ingrediente="ingrediente" />
+    <!-- <Ingrediente class="col-12 col-md-5" v-for="ingrediente in store.ingredientes"  :ingrediente="ingrediente" /> -->
+    <DataTable
+        :columns="columns"
+       :data="store.ingredientes"
+        class="display table"
+    />
     </div>
    
 </template>

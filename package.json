@@ -11,10 +11,11 @@
   "dependencies": {
     "@formkit/themes": "^1.6.5",
     "@formkit/vue": "^1.6.5",
-    "@headlessui/vue": "^1.7.22",
     "@heroicons/vue": "^2.1.5",
     "axios": "^1.7.3",
     "bootstrap": "^5.3.3",
+    "datatables.net-bs5": "^2.1.4",
+    "datatables.net-vue3": "^3.0.2",
     "pinia": "^2.1.7",
     "vue": "^3.4.37",
     "vue-router": "^4.3.3",

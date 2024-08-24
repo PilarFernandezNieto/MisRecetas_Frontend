@@ -1,5 +1,20 @@
 <script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { RouterLink } from 'vue-router';
+
+const route = useRoute();
+const navRoutes = [
+    {
+        name: "admin",
+        text: "Admin"
+    },
+    {
+        name: "login",
+        text: "Iniciar sesión"
+    },
+
+]
 
 </script>
 
@@ -15,12 +30,12 @@ import { RouterLink } from 'vue-router';
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <RouterLink :to="{name: 'admin'}" class="nav-link active" aria-current="page" href="">Admin</RouterLink>
+                    <li class="nav-item" v-for="navRoute in navRoutes">
+                         <!-- <RouterLink :to="{name: 'admin'}" class="nav-link"  aria-current="page" href="">Admin</RouterLink> -->
+                         <RouterLink  :to="{name: navRoute.name}" class="nav-link"  aria-current="page"
+                         :class="{'link-hover' : route.name === navRoute.name}">{{ navRoute.text }}</RouterLink>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
+                
 
 
                 </ul>
@@ -37,6 +52,10 @@ import { RouterLink } from 'vue-router';
 .navegacion-principal a {
     font-size: 2rem;
     font-weight: 600;
+}
+.link-hover{
+    border: 0.5px solid #666;
+    border-radius: 3.85px;
 }
 
 .logo {

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import AdminLayout from "../views/admin/AdminLayout.vue"
+import AuthLayout from "@/views/auth/AuthLayout.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,6 +32,19 @@ const router = createRouter({
           component: () => import ("../views/admin/EditaIngredienteView.vue")
         }
       ]
+    },
+    {
+      path: "/auth",
+      name: "auth",
+      component: AuthLayout,
+      children: [
+        {
+          path: "login",
+          name: "login",
+          component: () => import("../views/auth/LoginView.vue")
+        }
+      ]
+      
     },
     {
       path: "/recetas",
