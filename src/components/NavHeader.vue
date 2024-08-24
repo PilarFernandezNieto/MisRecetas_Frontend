@@ -31,13 +31,9 @@ const navRoutes = [
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item" v-for="navRoute in navRoutes">
-                         <!-- <RouterLink :to="{name: 'admin'}" class="nav-link"  aria-current="page" href="">Admin</RouterLink> -->
                          <RouterLink  :to="{name: navRoute.name}" class="nav-link"  aria-current="page"
                          :class="{'link-hover' : route.name === navRoute.name}">{{ navRoute.text }}</RouterLink>
                     </li>
-                
-
-
                 </ul>
             </div>
         </div>

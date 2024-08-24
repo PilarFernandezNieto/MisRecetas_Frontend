@@ -11,7 +11,7 @@ const config = {
             },
   
             submit: {
-                input: "$reset bg-amber-400 hover:bg-amber-500 rounded w-full p-2 font-bold uppercase disable:opacity-50"
+                input: "$reset bg-amber-400 hover:bg-amber-500 rounded w-full p-2 font-bold uppercase disable:opacity-50 transition-all"
             }
         })
 

@@ -21,7 +21,7 @@ import Link from './Link.vue';
             </div>
     
 
-            <Link to="home" class="m-4">Inicio</Link>
+          
        
         
        
