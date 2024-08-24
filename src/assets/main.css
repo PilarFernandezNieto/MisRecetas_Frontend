@@ -51,11 +51,13 @@ h1 {
   
 }
 
-table.dataTable thead th:last-child,
-table.dataTable tbody td:last-child {
-  width: 150px !important; /* Ancho específico en píxeles */
+table thead th:last-child,
+table tbody td:last-child{
+    width: 20%;
 }
-button.editar {
+
+/* Botones de los listados */
+.editar {
     background-color: var(--sky-500);
     color: white;
     padding:4px 8px;
@@ -63,10 +65,11 @@ button.editar {
     transition: all 1s ease;
 }
 
-button.editar:hover {
+
+.editar:hover {
     background-color: var(--sky-600);
 }
-button.borrar {
+.borrar {
     background-color: var(--red-600);
     color: white;
     padding:4px 8px;
@@ -74,14 +77,11 @@ button.borrar {
     transition: all 1s ease;
 }
 
-button.borrar:hover {
+ .borrar:hover {
     background-color: var(--red-700);
 }
 input[type="search"]{
     border-radius: 4px;
-}
-.pagination .active>.page-link{
-    background-color: var(--sky-500);
 }
 
 
