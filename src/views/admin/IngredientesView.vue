@@ -4,10 +4,15 @@ import Link from '@/components/Link.vue';
 import Ingrediente from '@/components/Ingrediente.vue';
 import { useIngredientesStore } from '@/stores/ingredientes';
 
+
 const ingredientes = useIngredientesStore();
 
 
 const searchTerm = ref('');
+
+
+console.log('Estado inicial de store.ingredientes:', ingredientes.ingredientes);
+console.log('Tipo de store.ingredientes:', Array.isArray(ingredientes.ingredientes) ? 'array' : 'no array');
 
 
 </script>
@@ -17,7 +22,7 @@ const searchTerm = ref('');
     <div>
         <h1 class="mb-5 text-center">Lista de ingredientes</h1>
 
-        
+
         <div class="row gap-3 lista-ingredientes ">
             <div class="d-flex p-0 m-0 flex-column flex-md-row justify-content-md-between align-items-center">
                 <Link to="nuevo-ingrediente" class="">Nuevo Ingrediente</Link>
@@ -40,6 +45,7 @@ const searchTerm = ref('');
 
             </table>
         </div>
+        
     </div>
 
 </template>
@@ -48,13 +54,15 @@ input {
     width: 95%;
     border-color: #b6b6b6;
     border-radius: 4px;
-    
+
 }
-@media(width > 798px){
+
+@media(width > 798px) {
     input {
         width: 30%;
     }
 }
+
 .boton {
     text-align: center;
 }
@@ -67,7 +75,7 @@ a {
     font-size: 1.2rem;
     font-weight: 500;
     transition: all 0.5s;
-    
+
 
 }
 

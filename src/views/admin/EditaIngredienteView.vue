@@ -14,11 +14,11 @@ const ingredientes = useIngredientesStore();
 const { id } = route.params
 
 const formData = ref({
-   
+
 })
 
 onMounted(async () => {
-    const {data} = await ingredientesAPI.getById(id)
+    const { data } = await ingredientesAPI.getById(id)
     formData.value.id = data.id
     formData.value.nombre = data.nombre
     formData.value.descripcion = data.descripcion
@@ -34,7 +34,7 @@ const submitHandler = async (formData) => {
                 type: "success"
             });
             reset("ingredienteForm")
-           
+
             router.push({ name: "ingredientes" })
         } else {
             toast.open({
@@ -43,13 +43,9 @@ const submitHandler = async (formData) => {
             });
         }
 
-
     } catch (error) {
         console.log(error);
-        
-
     }
-
 }
 
 
@@ -58,24 +54,31 @@ const submitHandler = async (formData) => {
 <template>
     <div class="">
 
-<h1 class="text-center">Actualiza Ingrediente</h1>
-<div class="shadow p-5 formulario">
-    <FormKit id="ingredienteForm" type="form" :value="formData" submit-label="Actualiza Ingrediente"
-        incomplete-message="No se puedo enviar, revisa los mensajes" @submit="submitHandler">
-        <FormKit type="text" label="Nombre" name="nombre" v-model.trim="formData.nombre" placeholder="Ingrediente" validation="required"
-            :validation-messages="{ required: 'Campo obligatorio' }" />
-        <FormKit type="text" label="Descripción" name="descripcion" v-model.trim="formData.descripcion" placeholder="Descripcion" />
+        <h1 class="text-center">Actualiza Ingrediente</h1>
+        <div class="shadow p-5 formulario">
+            <FormKit id="ingredienteForm" type="form" :value="formData" submit-label="Actualiza Ingrediente"
+                incomplete-message="No se puedo enviar, revisa los mensajes" @submit="submitHandler">
+                <FormKit type="text" label="Nombre" name="nombre" v-model.trim="formData.nombre"
+                    placeholder="Ingrediente" validation="required"
+                    :validation-messages="{ required: 'Campo obligatorio' }" />
+                <FormKit type="text" label="Descripción" name="descripcion" v-model.trim="formData.descripcion"
+                    placeholder="Descripcion" />
 
-    </FormKit>
-    <Link to="ingredientes" class="row p-0 m-0">Volver</Link>
-</div>
-
-
-</div>
+            </FormKit>
+            <Link to="ingredientes" class="row p-0 m-0">Volver</Link>
+        </div>
+    </div>
 </template>
 
-
-
 <style scoped>
+.formulario {
+    width: 95%;
+    margin: 0 auto;
+}
 
+@media (width > 991px) {
+    .formulario {
+        width: 50%;
+    }
+}
 </style>

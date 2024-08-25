@@ -16,5 +16,8 @@ export default {
     update(id, data){
         return api.put(`/ingredientes/actualizar/${id}`, data)
     },
+    delete(id){
+        return api.delete(`/ingredientes/eliminar/${id}`)
+    }
 
 }
