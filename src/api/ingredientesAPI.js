@@ -10,5 +10,11 @@ export default {
             'Content-Type': 'application/x-www-form-urlencoded', 
         }})
     },
+    getById(id){
+        return api.get(`/ingredientes/${id}`)
+    },
+    update(id, data){
+        return api.put(`/ingredientes/actualizar/${id}`, data)
+    },
 
 }

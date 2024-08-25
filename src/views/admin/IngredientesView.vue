@@ -1,13 +1,13 @@
 <script setup>
-import { onMounted, watch, nextTick } from 'vue';
+import { onMounted, computed, ref } from 'vue';
 import Link from '@/components/Link.vue';
 import Ingrediente from '@/components/Ingrediente.vue';
 import { useIngredientesStore } from '@/stores/ingredientes';
 
+const ingredientes = useIngredientesStore();
 
 
-const store = useIngredientesStore();
-
+const searchTerm = ref('');
 
 
 </script>
@@ -15,10 +15,16 @@ const store = useIngredientesStore();
 <template>
 
     <div>
-        <h1 class="mb-5">Lista de ingredientes</h1>
-        <Link to="nuevo-ingrediente">Nuevo Ingrediente</Link>
+        <h1 class="mb-5 text-center">Lista de ingredientes</h1>
+
+        
         <div class="row gap-3 lista-ingredientes ">
-            <table id="lista-ingredientes" class="table mt-5">
+            <div class="d-flex p-0 m-0 flex-column flex-md-row justify-content-md-between align-items-center">
+                <Link to="nuevo-ingrediente" class="">Nuevo Ingrediente</Link>
+                <input v-model="searchTerm" class="form-control my-4" type="text"
+                    placeholder="Buscar ingredientes..." />
+            </div>
+            <table id="lista-ingredientes" class="table">
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -28,7 +34,7 @@ const store = useIngredientesStore();
                     </tr>
                 </thead>
                 <tbody>
-                    <Ingrediente v-for="ingrediente in store.ingredientes" :key="ingrediente.id"
+                    <Ingrediente v-for="ingrediente in ingredientes.filteredIngredientes" :key="ingrediente.id"
                         :ingrediente="ingrediente" />
                 </tbody>
 
@@ -38,14 +44,30 @@ const store = useIngredientesStore();
 
 </template>
 <style scoped>
+input {
+    width: 95%;
+    border-color: #b6b6b6;
+    border-radius: 4px;
+    
+}
+@media(width > 798px){
+    input {
+        width: 30%;
+    }
+}
+.boton {
+    text-align: center;
+}
+
 a {
     background-color: var(--amber-500);
-    padding: 1rem 2rem;
-    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
     color: white;
     font-size: 1.2rem;
     font-weight: 500;
     transition: all 0.5s;
+    
 
 }
 

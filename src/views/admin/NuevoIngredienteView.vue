@@ -1,37 +1,41 @@
 <script setup>
-import { reactive, inject } from 'vue';
+import { inject } from 'vue';
+import { useRouter } from 'vue-router';
 import { reset } from '@formkit/vue';
 import Link from '@/components/Link.vue';
-import ingredientesAPI from "@/api/ingredientesAPI";
+import { useIngredientesStore } from '@/stores/ingredientes';
 
 
 const toast = inject("toast");
+const router = useRouter()
+const ingredientes = useIngredientesStore();
+
 
 
 const submitHandler = async (formData) => {
     try {
-        const {data} = await ingredientesAPI.create(formData);
-        console.log(data);
-        
-        if (data.resultado !== "error") {
+        const data = await ingredientes.creaIngrediente(formData);
+
+        if (data.resultado.resultado !== "error") {
             toast.open({
                 message: data.msg,
                 type: "success"
             });
             reset("ingredienteForm")
+            router.push({ name: "ingredientes" })
         } else {
             toast.open({
                 message: data.msg,
                 type: "error"
-            }); 
+            });
         }
 
-        
+
     } catch (error) {
         toast.open({
-                message: error.response.data.msg,
-                type: "error"
-            }); 
+            message: error.response.data.msg,
+            type: "error"
+        });
 
     }
 

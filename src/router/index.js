@@ -27,7 +27,7 @@ const router = createRouter({
           component: () => import ("../views/admin/NuevoIngredienteView.vue")
         },
         {
-          path: "ingredientes/editar/:id",
+          path: "ingredientes/actualizar/:id",
           name: "edita-ingrediente",
           component: () => import ("../views/admin/EditaIngredienteView.vue")
         }

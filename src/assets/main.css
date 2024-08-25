@@ -55,14 +55,19 @@ table thead th:last-child,
 table tbody td:last-child{
     width: 20%;
 }
+table tr {
+    vertical-align: middle;
+}
 
 /* Botones de los listados */
 .editar {
     background-color: var(--sky-500);
     color: white;
-    padding:4px 8px;
+    padding:7px 8px;
     border-radius: 4px;
     transition: all 1s ease;
+    text-align: center;
+    font-size: 12px;
 }
 
 
@@ -75,13 +80,11 @@ table tbody td:last-child{
     padding:4px 8px;
     border-radius: 4px;
     transition: all 1s ease;
+    font-size: 12px;
 }
 
  .borrar:hover {
     background-color: var(--red-700);
-}
-input[type="search"]{
-    border-radius: 4px;
 }
 
 
