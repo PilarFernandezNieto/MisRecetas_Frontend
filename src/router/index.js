@@ -39,6 +39,17 @@ const router = createRouter({
       component: AuthLayout,
       children: [
         {
+          path: "registro",
+          name: "registro",
+          component: () => import("../views/auth/RegistroView.vue")
+        },
+        {
+          path: "confirmar-cuenta/:token",
+          name: "confirmar-cuenta",
+          component: () => import("../views/auth/ConfirmarCuentaView.vue")
+        },
+        
+        {
           path: "login",
           name: "login",
           component: () => import("../views/auth/LoginView.vue")

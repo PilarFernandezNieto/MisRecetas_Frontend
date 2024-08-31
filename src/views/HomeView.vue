@@ -33,6 +33,7 @@ import Recetas from '@/components/Recetas.vue';
 </template>
 <style scoped>
 /* HomeView */
+
 h2 {
   font-size: 2.5rem;
   color: var(--amber-800);

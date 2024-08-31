@@ -5,18 +5,18 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+    <div id="myapp">
     <Header />
-    <div class="container-fluid p-0">
-      
-            <RouterView />
 
+    <RouterView />
 
-    </div>
     <Footer />
+</div>
 
 </template>
 
 <style>
+
 body {
     font-family: var(--principal-font);
 

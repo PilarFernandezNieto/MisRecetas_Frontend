@@ -10,11 +10,11 @@
     --amber-50: #fffbeb;
     --amber-100: ##fef9c3;
     --amber-200: #fde68a;
-    --amber-300: #fde047;
-    --amber-400: #facc15;
-    --amber-500: #eab308;
-    --amber-600: #ca8a04;
-    --amber-700: #a16207;
+    --amber-300: #fcd34d;
+    --amber-400: #fbbf24;
+    --amber-500: #f59e0b;
+    --amber-600: #d97706;
+    --amber-700: #b45309;
     --amber-800: #92400e;
     --red-600: #dc2626;
     --red-700: #b91c1c;
@@ -25,8 +25,10 @@
 }
 
 body {
+    
     font-family: var(--principal-font);
 }
+
 
 .fondo-body {
     background: rgb(254, 243, 199);
@@ -48,7 +50,7 @@ h1 {
 } */
 .fondo-admin {
     background-color: var(--amber-50);
-  
+
 }
 
 
@@ -59,9 +61,11 @@ table tr {
 table thead th:last-child,
 table tbody td:last-child {
     text-align: center;
-  width: 150px !important; /* Ancho específico en píxeles */
+    width: 150px !important;
+    /* Ancho específico en píxeles */
 }
-.pagination .active>.page-link{
+
+.pagination .active>.page-link {
     background-color: var(--sky-500);
 }
 
@@ -69,7 +73,7 @@ table tbody td:last-child {
 .editar {
     background-color: var(--sky-500);
     color: white;
-    padding:7px 8px;
+    padding: 7px 8px;
     border-radius: 4px;
     transition: all 1s ease;
     text-align: center;
@@ -80,16 +84,17 @@ table tbody td:last-child {
 .editar:hover {
     background-color: var(--sky-600);
 }
+
 .borrar {
     background-color: var(--red-600);
     color: white;
-    padding:7px 8px;
+    padding: 7px 8px;
     border-radius: 4px;
     transition: all 1s ease;
     font-size: 12px;
 }
 
- .borrar:hover {
+.borrar:hover {
     background-color: var(--red-700);
 }
 
