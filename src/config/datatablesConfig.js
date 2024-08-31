@@ -1,10 +1,10 @@
 // src/config/dataTableConfig.js
 export const dataTableConfig = {
-  bPaginate: true,
-  bLengthChange: false,
-  bFilter: true,
-  bInfo: false,
-  bAutoWidth: false,
+  paging: true,
+  lengthChange: false,
+  searching: true,
+  info: false,
+  autoWidth: false,
   language: {
     decimal: ",",
     thousands: ".",
@@ -13,12 +13,12 @@ export const dataTableConfig = {
     infoEmpty: "Mostrando 0 a 0 de 0 registros",
     infoFiltered: "(filtrado de _MAX_ registros totales)",
     search: "Buscar:",
-    oPaginate: {
+    paginate: {
       first: "<<",
       last: ">>",
       next: ">",
-      previous: ">"
+      previous: "<"
     },
-    sProcessing: "Cargando..."
+    processing: "Cargando..."
   }
 };

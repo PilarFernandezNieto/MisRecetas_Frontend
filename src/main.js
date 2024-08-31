@@ -5,9 +5,10 @@ import { plugin, defaultConfig } from '@formkit/vue'
 import { useToast } from "vue-toast-notification";
 import config from "../formkit.config";
 
+
+
 import App from "./App.vue";
 import router from "./router";
-
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -23,6 +24,7 @@ const $toast = useToast({
 const app = createApp(App);
 
 app.provide("toast", $toast)
+
 
 app.use(createPinia());
 app.use(router);

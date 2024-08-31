@@ -1,50 +1,33 @@
-import { ref, onMounted, computed, reactive, watch } from "vue";
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import { defineStore } from "pinia";
 import ingredientesAPI from "@/api/ingredientesAPI";
 
 export const useIngredientesStore = defineStore("ingredientes", () => {
   const ingredientes = ref([]);
-  const nuevoIngrediente = reactive({
-    id: "",
-    nombre: "",
-    descripcion: ""
-  });
+  const router = useRouter();
 
-  const searchTerm = ref('');
-  onMounted(async () => {
+  onMounted(async() => {
     try {
       const { data } = await ingredientesAPI.all();
       ingredientes.value = data;
     } catch (error) {
       console.log(error);
     }
-  });
-  const filteredIngredientes = computed(() => {
-    console.log('Filtrando ingredientes, tipo:', Array.isArray(ingredientes.value) ? 'array' : 'no array');
-
-    if (!Array.isArray(ingredientes.value)) {
-      console.error("ingredientes no es un array:", ingredientes.value);
-      return [];
-    }
-
-    if (!searchTerm.value) {
-      console.log("Hola")
-      return ingredientes.value;
-    }
-    return ingredientes.value.filter(ingrediente => {
-      console.log(ingrediente)
-      ingrediente.nombre.toLowerCase().includes(searchTerm.value.toLowerCase())
-    })
   })
+
+
+
 
   async function creaIngrediente(formData) {
     try {
       const { data } = await ingredientesAPI.create(formData);
-      nuevoIngrediente.id = data.resultado.id;
-      nuevoIngrediente.nombre = formData.nombre;
-      nuevoIngrediente.descripcion = formData.descripcion;
+      const nuevoIngrediente = {
+        id: data.resultado.id,
+        nombre: formData.nombre,
+        descripcion: formData.descripcion
+      };
       ingredientes.value.push(nuevoIngrediente);
-
       return data;
     } catch (error) {
       console.log(error);
@@ -61,6 +44,7 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
       if (index !== -1) {
         ingredientes.value[index] = data.ingrediente;
       }
+      router.push({ name: "ingredientes" });
       return data;
     } catch (error) {
       console.log(error);
@@ -99,7 +83,6 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
           });
         }
       } catch (error) {
-
         console.log(error);
       }
     }
@@ -107,7 +90,6 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
 
   return {
     ingredientes,
-    filteredIngredientes,
     creaIngrediente,
     actualizaIngrediente,
     eliminaIngrediente

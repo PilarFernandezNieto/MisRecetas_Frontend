@@ -18,6 +18,9 @@ export default {
     },
     delete(id){
         return api.delete(`/ingredientes/eliminar/${id}`)
+    },
+    getParticipantes() {
+        return api.get("/pruebas/participantes.php")
     }
 
 }

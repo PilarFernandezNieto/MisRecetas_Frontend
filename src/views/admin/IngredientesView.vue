@@ -1,10 +1,16 @@
 <script setup>
-import { onMounted, computed, ref } from 'vue';
+import { onMounted, ref, nextTick } from 'vue';
 import Link from '@/components/Link.vue';
 import Ingrediente from '@/components/Ingrediente.vue';
 import { useIngredientesStore } from '@/stores/ingredientes';
+import { dataTableConfig } from '@/config/datatablesConfig';
 
+let dt
 const ingredientes = useIngredientesStore();
+const table = ref()
+
+
+
 
 </script>
 
@@ -12,16 +18,23 @@ const ingredientes = useIngredientesStore();
 
     <div>
         <h1 class="mb-5 text-center">Lista de ingredientes</h1>
+        <div class="lista-ingredientes ">
 
+            <Link to="nuevo-ingrediente" class="">Nuevo Ingrediente</Link>
+            <table class="display table mt-3" ref="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
 
-        <div class="row gap-3 lista-ingredientes ">
-            <div class="d-flex p-0 m-0 flex-column flex-md-row justify-content-md-between align-items-center">
-                <Link to="nuevo-ingrediente" class="">Nuevo Ingrediente</Link>
-
-            </div>
-
-          
-
+                </thead>
+                <tbody>
+                    <Ingrediente v-for="ingrediente in ingredientes.ingredientes" :key="ingrediente.id"
+                        :ingrediente="ingrediente" />
+                </tbody>
+            </table>
         </div>
 
     </div>
