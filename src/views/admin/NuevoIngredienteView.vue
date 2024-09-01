@@ -15,6 +15,7 @@ const ingredientes = useIngredientesStore();
 const submitHandler = async (formData) => {
     try {
         const data = await ingredientes.creaIngrediente(formData);
+        console.log(data)
 
         if (data.resultado.resultado !== "error") {
             toast.open({

@@ -13,21 +13,23 @@ const router = useRouter()
 const ingredientes = useIngredientesStore();
 const { id } = route.params
 
+
 const formData = ref({
 
 })
 
 onMounted(async () => {
     const { data } = await ingredientesAPI.getById(id)
-    formData.value.id = data.id
-    formData.value.nombre = data.nombre
-    formData.value.descripcion = data.descripcion
+  
+    formData.value.id = data.ingrediente.id
+    formData.value.nombre = data.ingrediente.nombre
+    formData.value.descripcion = data.ingrediente.descripcion
 })
 
 
 const submitHandler = async (formData) => {
     try {
-        const data = await ingredientes.actualizaIngrediente(id, formData);
+        const data = await ingredientes.actualizaIngrediente(parseInt(id), formData);
         if (data.resultado !== "error") {
             toast.open({
                 message: data.msg,

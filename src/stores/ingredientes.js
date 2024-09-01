@@ -7,17 +7,14 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
   const ingredientes = ref([]);
   const router = useRouter();
 
-  onMounted(async() => {
+  onMounted(async () => {
     try {
       const { data } = await ingredientesAPI.all();
       ingredientes.value = data;
     } catch (error) {
       console.log(error);
     }
-  })
-
-
-
+  });
 
   async function creaIngrediente(formData) {
     try {
@@ -37,17 +34,16 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
     try {
       const { data } = await ingredientesAPI.update(id, formData);
 
-      const index = ingredientes.value.findIndex(ingrediente => {
-        ingrediente.id === id;
-      });
-
-      if (index !== -1) {
-        ingredientes.value[index] = data.ingrediente;
+      if (data.resultado !== "error") {
+        const index = ingredientes.value.findIndex(ingrediente => ingrediente.id == id);
+        if (index !== -1) {
+          ingredientes.value[index] = data.ingrediente;
+        }
+        router.push({ name: "ingredientes" });
       }
-      router.push({ name: "ingredientes" });
       return data;
     } catch (error) {
-      console.log(error);
+      console.log("error de catch", error);
     }
   }
 
@@ -67,12 +63,11 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
       try {
         const { data } = await ingredientesAPI.delete(id);
 
-        console.log(data);
         if (!data.error) {
           ingredientes.value = ingredientes.value.filter(ingrediente => ingrediente.id !== id);
           Swal.fire({
             title: "¡Eliminado!",
-            text: "El ingrediente ha sido eliminado.",
+            text: data.msg,
             icon: "success"
           });
         } else {
