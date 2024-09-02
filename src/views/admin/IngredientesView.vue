@@ -9,9 +9,6 @@ let dt
 const ingredientes = useIngredientesStore();
 const table = ref()
 
-
-
-
 </script>
 
 <template>

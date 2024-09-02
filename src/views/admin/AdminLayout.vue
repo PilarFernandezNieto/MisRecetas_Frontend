@@ -4,15 +4,23 @@ import AdminNav from "../../components/AdmiNav.vue"
 </script>
 <template>
     <AdminNav />
-<div class="fondo-admin min-vh-100">
+    <div class="fondo-admin alto-minimo">
 
-    
+
         <div class="container mx-auto py-5">
             <RouterView />
         </div>
-</div>
+    </div>
 
 </template>
 <style scoped>
+.alto-minimo {
+    min-height: auto;
+}
+@media(width>798px) {
+    .alto-minimo {
+        min-height: 70vh;
 
+    }
+}
 </style>

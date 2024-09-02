@@ -13,8 +13,8 @@ import Recetas from '@/components/Recetas.vue';
         <h2 class="py-5 ">Buscador de recetas</h2>
         <div class="border-0 rounded-2 shadow row mx-auto buscador">
           <form>
-            <div class="row p-3 ">
-              <div class="input-group">
+            <div class="row py-3 ">
+              <div class="input-group p-0">
                 <input id="receta" placeholder="Buscar receta" class="form-control">
                 <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>

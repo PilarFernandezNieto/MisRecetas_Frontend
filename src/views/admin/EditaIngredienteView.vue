@@ -30,7 +30,7 @@ onMounted(async () => {
 const submitHandler = async (formData) => {
     try {
         const data = await ingredientes.actualizaIngrediente(parseInt(id), formData);
-        if (data.resultado !== "error") {
+        if (data.result !== "error") {
             toast.open({
                 message: data.msg,
                 type: "success"
@@ -57,7 +57,7 @@ const submitHandler = async (formData) => {
     <div class="">
 
         <h1 class="text-center">Actualiza Ingrediente</h1>
-        <div class="shadow p-5 formulario">
+        <div class="shadow p-3 formulario">
             <FormKit id="ingredienteForm" type="form" :value="formData" submit-label="Actualiza Ingrediente"
                 incomplete-message="No se puedo enviar, revisa los mensajes" @submit="submitHandler">
                 <FormKit type="text" label="Nombre" name="nombre" v-model.trim="formData.nombre"

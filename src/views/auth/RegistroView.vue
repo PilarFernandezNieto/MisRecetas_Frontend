@@ -1,13 +1,23 @@
 <script setup>
+import { inject } from "vue";
+import { reset } from "@formkit/vue";
 import authApi from "../../api/authApi.js"
+const toast = inject("toast")
 
-const handleSubmit = async ({password_confirm, ...formData}) => {
+const handleSubmit = async ({ password_confirm, ...formData }) => {
     try {
-       await authApi.registro(formData)
+        const { data } = await authApi.registro(formData)
+
+            toast.open({
+                type: "success",
+                message: data.msg
+            })
+            reset("registroForm")
+
     } catch (error) {
         console.log(error)
     }
-    
+
 }
 
 </script>
@@ -15,7 +25,8 @@ const handleSubmit = async ({password_confirm, ...formData}) => {
 <template>
     <h1 class="text-center">Crea una cuenta</h1>
     <div class="w-11/12  md:w-2/3 mx-auto">
-        <FormKit type="form" :actions="false" incomplete-message="No se ha enviado. Verifica todos los campos" @submit="handleSubmit">
+        <FormKit type="form" :actions="false" incomplete-message="No se ha enviado. Verifica todos los campos"
+            @submit="handleSubmit" id="registroForm">
             <FormKit type="text" label="Nombre" name="nombre" placeholder="Tu nombre" validation="required|length:3"
                 :validation-messages="{
                     required: 'El nombre es obligatorio',
@@ -32,8 +43,8 @@ const handleSubmit = async ({password_confirm, ...formData}) => {
                     required: 'La contraseña es obligatoria',
                     email: 'La contraseña debe tener al menos 8 caracteres'
                 }" />
-            <FormKit type="password" label="Repetir contraseña" name="password_confirm" placeholder="Repite la contraseña"
-                validation="required|confirm" :validation-messages="{
+            <FormKit type="password" label="Repetir contraseña" name="password_confirm"
+                placeholder="Repite la contraseña" validation="required|confirm" :validation-messages="{
                     required: 'La contraseña es obligatoria',
                     confirm: 'Las contraseñas no son iguales'
                 }" />
