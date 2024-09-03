@@ -52,6 +52,15 @@ h1 {
     background-color: var(--amber-50);
 
 }
+.alto-minimo {
+    min-height: auto;
+}
+@media(width>798px) {
+    .alto-minimo {
+        min-height: 70vh;
+
+    }
+}
 
 
 table tr {

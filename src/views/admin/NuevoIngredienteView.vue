@@ -5,18 +5,16 @@ import { reset } from '@formkit/vue';
 import Link from '@/components/Link.vue';
 import { useIngredientesStore } from '@/stores/ingredientes';
 
-
 const toast = inject("toast");
 const router = useRouter()
 const ingredientes = useIngredientesStore();
-
 
 const submitHandler = async (formData) => {
     try {
         const data = await ingredientes.creaIngrediente(formData);
         console.log(data)
 
-        if (data.resultado !== "error") {
+        if (data.result !== "error") {
             toast.open({
                 message: data.msg,
                 type: "success"
@@ -28,21 +26,15 @@ const submitHandler = async (formData) => {
                 message: data.msg,
                 type: "error"
             });
-           
         }
 
-
     } catch (error) {
-       
         console.log("ERROR", error)
-       
         toast.open({
             message: error.response.data.msg,
             type: "error"
         });
-
     }
-
 }
 
 </script>

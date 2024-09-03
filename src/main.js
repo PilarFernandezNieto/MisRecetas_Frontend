@@ -16,7 +16,7 @@ import "./assets/main.css";
 
 import "vue-toast-notification/dist/theme-sugar.css"
 const $toast = useToast({
-    duration: 5000,
+    duration: 2500,
     position: 'top-right'
 });
 

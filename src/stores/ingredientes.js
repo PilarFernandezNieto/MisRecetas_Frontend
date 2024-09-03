@@ -19,17 +19,14 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
   async function creaIngrediente(formData) {
     try {
       const { data } = await ingredientesAPI.create(formData);
-      if (data.resultado === "error") {
-        data.ingredientes = ingredientes.value;
-      } else {
-      const nuevoIngrediente = {
-        id: data.resultado.id,
-        nombre: formData.nombre,
-        descripcion: formData.descripcion
-      };
-      ingredientes.value.push(nuevoIngrediente);
-      
-    }
+      if (data.result !== "error") {
+        const nuevoIngrediente = {
+          id: data.result.id,
+          nombre: formData.nombre,
+          descripcion: formData.descripcion
+        };
+        ingredientes.value.push(nuevoIngrediente);
+      }
     return data;
     } catch (error) {
       console.log("Mi error", error);
@@ -38,7 +35,7 @@ export const useIngredientesStore = defineStore("ingredientes", () => {
   async function actualizaIngrediente(id, formData) {
     try {
       const { data } = await ingredientesAPI.update(id, formData);
-      console.log(data)
+      
       if (data.result !== "error") {
         const index = ingredientes.value.findIndex(ingrediente => ingrediente.id == id);
         if (index !== -1) {

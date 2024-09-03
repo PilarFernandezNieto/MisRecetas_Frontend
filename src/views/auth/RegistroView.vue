@@ -7,15 +7,16 @@ const toast = inject("toast")
 const handleSubmit = async ({ password_confirm, ...formData }) => {
     try {
         const { data } = await authApi.registro(formData)
-
             toast.open({
                 type: "success",
                 message: data.msg
             })
             reset("registroForm")
-
     } catch (error) {
-        console.log(error)
+        toast.open({
+                type: "error",
+                message: error.response.data.msg
+            })
     }
 
 }

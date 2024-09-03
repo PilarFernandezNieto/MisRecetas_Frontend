@@ -14,13 +14,5 @@ import AdminNav from "../../components/AdmiNav.vue"
 
 </template>
 <style scoped>
-.alto-minimo {
-    min-height: auto;
-}
-@media(width>798px) {
-    .alto-minimo {
-        min-height: 70vh;
 
-    }
-}
 </style>
