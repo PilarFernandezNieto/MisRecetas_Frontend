@@ -7,6 +7,17 @@ export default {
    },
    confirmarCuenta(token){
       return api.get(`/auth/confirmar-cuenta/${token}`)
+   },
+   login(data){
+      return api.post("/auth/login", data, cabecera)
+   },
+   auth() {
+      const token= localStorage.getItem("AUTH_TOKEN")
+      return api.get('/auth/user', {
+         headers: {
+            Authorization: `Bearer ${token}`
+         }
+      })
    }
 
 }

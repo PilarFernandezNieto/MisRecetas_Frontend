@@ -7,6 +7,7 @@ export default {
     "./index.html",
     "./src/views/admin/NuevoIngredienteView.vue",
     "./src/views/auth/RegistroView.vue",
+    "./src/views/auth/LoginView.vue",
     "./formkit.config.js",
     
   ],

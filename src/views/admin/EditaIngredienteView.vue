@@ -20,6 +20,7 @@ const formData = ref({
 
 onMounted(async () => {
     const { data } = await ingredientesAPI.getById(id)
+    console.log(data)
   
     formData.value.id = data.ingrediente.id
     formData.value.nombre = data.ingrediente.nombre

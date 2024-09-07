@@ -8,15 +8,13 @@ const authRoutes = [
 
 </script>
 <template>
-    <div class="container my-5 authLayout alto-minimo">
+    <div class="container my-5 authLayout alto-minimo d-flex flex-column justify-content-center">
         <RouterView />
         <nav class="row mt-5 justify-content-between">
             <RouterLink v-for="(route, index) in authRoutes" :key="index" :to="{name: route.name}"  class="col-12 col-md-4 text-center text-md-left py-2 mb-2">{{ route.text }}</RouterLink>
 
         </nav>
     </div>
-
-
 
 </template>
 
@@ -46,6 +44,11 @@ nav {
     }
     nav {
         width: 66.66%;
+    }
+}
+@media (width > 991px){
+    nav {
+        max-width: 50%;
     }
 }
 

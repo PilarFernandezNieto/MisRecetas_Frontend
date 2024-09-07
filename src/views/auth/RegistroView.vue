@@ -25,7 +25,7 @@ const handleSubmit = async ({ password_confirm, ...formData }) => {
 
 <template>
     <h1 class="text-center">Crea una cuenta</h1>
-    <div class="w-11/12  md:w-2/3 mx-auto">
+    <div class="w-11/12  md:w-2/3 lg:w-1/2 mx-auto">
         <FormKit type="form" :actions="false" incomplete-message="No se ha enviado. Verifica todos los campos"
             @submit="handleSubmit" id="registroForm">
             <FormKit type="text" label="Nombre" name="nombre" placeholder="Tu nombre" validation="required|length:3"
