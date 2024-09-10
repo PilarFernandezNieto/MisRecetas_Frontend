@@ -1,8 +1,10 @@
 <script setup>
-import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import { RouterLink } from 'vue-router';
+import Link from './Link.vue';
+import { useUserStore } from '@/stores/user';
 
+
+const userStore = useUserStore()
 const route = useRoute();
 const navRoutes = [
     {
@@ -28,13 +30,13 @@ const navRoutes = [
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end flex-column align-items-end" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item" v-for="navRoute in navRoutes">
-                         <RouterLink  :to="{name: navRoute.name}" class="nav-link"  aria-current="page"
-                         :class="{'link-hover' : route.name === navRoute.name}">{{ navRoute.text }}</RouterLink>
+                    <li class="nav-item">
+                        
                     </li>
                 </ul>
+                
             </div>
         </div>
     </nav>
@@ -46,7 +48,7 @@ const navRoutes = [
 }
 
 .navegacion-principal a {
-    font-size: 2rem;
+    font-size: 1.2rem;
     font-weight: 600;
 }
 .link-hover{

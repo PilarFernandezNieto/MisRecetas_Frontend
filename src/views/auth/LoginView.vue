@@ -12,7 +12,7 @@ const handleSubmit = async (formData) => {
 
         if (data.result !== "error") {
            localStorage.setItem("AUTH_TOKEN", data.token)
-           router.push({name: "home"})
+           router.push({name: "admin"})
         } else {
             toast.open({
                 message: data.msg,

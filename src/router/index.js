@@ -4,8 +4,6 @@ import AdminLayout from "../views/admin/AdminLayout.vue";
 import AuthLayout from "@/views/auth/AuthLayout.vue";
 import authApi from "@/api/authApi";
 
-
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -18,7 +16,7 @@ const router = createRouter({
       path: "/admin",
       name: "admin",
       component: AdminLayout,
-      meta: { requiresAuth: true, requiresAdmin: true },
+      meta: { requiresAuth: true },
       children: [
         {
           path: "ingredientes",
@@ -63,19 +61,8 @@ const router = createRouter({
     {
       path: "/recetas",
       name: "recetas",
-      component: () => import("../views/recetas/RecetasLayoutView.vue"),
-      children: [
-        {
-          path: "",
-          name: "mis-recetas",
-          component: () => import("../views/recetas/MisRecetasView.vue")
-        },
-        {
-          path: "/ver-recetas/:id",
-          name: "ver-receta",
-          component: () => import("../views/recetas/RecetaView.vue")
-        }
-      ]
+      meta: { requiresAuth: true },
+      component: () => import("../views/recetas/RecetasLayoutView.vue")
     },
     {
       path: "/error",
@@ -87,32 +74,21 @@ const router = createRouter({
 // Guard de navegación
 router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(url => url.meta.requiresAuth);
-  const requiresAdmin = to.matched.some(url => url.meta.requiresAdmin);
+
   if (requiresAuth) {
     try {
       const { data } = await authApi.auth();
-      if (requiresAdmin && !data.admin) {
-        next({ name: "home" });
-        Swal.fire({
-          title: "No tienes acceso a este punto",
-          icon: "error"
-        })
-        
+      console.log("desde router")
+      if (data.admin) {
+        next({ name: "admin" });
       } else {
-
         next();
       }
     } catch (error) {
-    
-      
-      next({ name: "home" });
-      Swal.fire({
-        title: error.response.data,
-        icon: "error"
-      })
+      next({ name: "login" });
     }
   } else {
-    next();
+    next()
   }
 });
 

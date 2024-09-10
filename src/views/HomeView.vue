@@ -1,33 +1,26 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import Recetas from '@/components/Recetas.vue';
+import Buscador from '@/components/Buscador.vue';
+const authRoutes = [
+    {name: "registro", text: "Regístrate aquí"},
+    {name: "login", text: "Inicia Sesión"},
 
-
-
+]
 </script>
 
 <template>
-  <main class="p-10 homeview fondo-body">
+  <main class="p-10 homeview fondo-body d-fle flex-column">
     <div class="container">
-      <div class=" row justify-content-center">
-        <h2 class="py-5 ">Buscador de recetas</h2>
-        <div class="border-0 rounded-2 shadow row mx-auto buscador">
-          <form>
-            <div class="row py-3 ">
-              <div class="input-group p-0">
-                <input id="receta" placeholder="Buscar receta" class="form-control">
-                <button type="submit" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-      <section>
-      <p>aqui va una seleccion de recetas</p>
-      </section>
+      <Buscador />
+      <nav class="row mt-5 justify-content-between">
+            <RouterLink v-for="(route, index) in authRoutes" :key="index" :to="{name: route.name}"  class="col-12 col-md-4 text-center text-md-left py-2 mb-2">{{ route.text }}</RouterLink>
 
+        </nav>
     </div>
+  
   </main>
+
 
 
 </template>
@@ -44,33 +37,36 @@ h2 {
 section {
   margin: 8rem 0;
 }
-
-.buscador form {
-  width: 95%;
-  margin: 0 auto;
+a {
+    background-color: var(--amber-400);
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    justify-content: center;
+    transition: background-color 0.5s ease-in;
 }
-
-.buscador {
-  background-image: url("/img/fondo_buscador_min.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 95%;
+a:hover {
+    background-color: var(--amber-500);
 }
-
-.buscador .btn {
-  background-color: var(--amber-700);
-  color: white;
-  transition: all 0.2s ease;
+nav {
+    width: 90%;
+    margin: 0 auto;
 }
-
-.buscador .btn:hover {
-  background-color: var(--amber-600);
+@media(width > 798px){
+    a {
+        padding: 0.5rem 1rem;
+    }
+    nav {
+        width: 66.66%;
+    }
 }
-
-@media (width > 991px) {
-  .buscador {
-    width: 50%;
+@media (width > 991px){
+    nav {
+        max-width: 50%;
+    }
   }
-}
+
+
 </style>

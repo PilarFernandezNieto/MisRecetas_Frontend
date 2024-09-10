@@ -13,11 +13,14 @@ export default {
    },
    auth() {
       const token= localStorage.getItem("AUTH_TOKEN")
-      return api.get('/auth/user', {
-         headers: {
-            Authorization: `Bearer ${token}`
-         }
-      })
+      const config = {};
+
+      if (token) {
+        config.headers = {
+          Authorization: `Bearer ${token}`
+        };
+      }
+      return api.get('/auth/user', config)
    }
 
 }
