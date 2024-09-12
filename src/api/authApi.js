@@ -13,6 +13,7 @@ export default {
    },
    auth() {
       const token= localStorage.getItem("AUTH_TOKEN")
+      
       const config = {};
 
       if (token) {
@@ -20,6 +21,7 @@ export default {
           Authorization: `Bearer ${token}`
         };
       }
+      
       return api.get('/auth/user', config)
    }
 

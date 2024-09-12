@@ -12,7 +12,7 @@ const userStore = useUserStore();
                 <RouterLink :to="{ name: 'ingredientes' }" class="nav-link">Ingredientes</RouterLink>
             </li>
             <li class="nav-item">
-                <RouterLink :to="{ name: 'ingredientes' }" class="nav-link">Recetas</RouterLink>
+                <RouterLink :to="{ name: 'recetas' }" class="nav-link">Recetas</RouterLink>
             </li>
 
         </ul>

@@ -16,7 +16,6 @@ const router = createRouter({
       path: "/admin",
       name: "admin",
       component: AdminLayout,
-      meta: { requiresAuth: true },
       children: [
         {
           path: "ingredientes",
@@ -32,7 +31,23 @@ const router = createRouter({
           path: "ingredientes/actualizar/:id",
           name: "edita-ingrediente",
           component: () => import("../views/admin/EditaIngredienteView.vue")
+        },
+        {
+          path: "/recetas",
+          name: "recetas",
+          component: () => import("../views/admin/RecetasView.vue")
+        },
+        {
+          path: "/recetas/nueva",
+          name: "nueva-receta",
+          component: () => import("../views/admin/NuevaRecetaView.vue")
+        },
+        {
+          path: "/recetas/actualizar/:id",
+          name: "edita-receta",
+          component: () => import("../views/admin/EditaRecetaView.vue")
         }
+
       ]
     },
     {
@@ -58,12 +73,7 @@ const router = createRouter({
         }
       ]
     },
-    {
-      path: "/recetas",
-      name: "recetas",
-      meta: { requiresAuth: true },
-      component: () => import("../views/recetas/RecetasLayoutView.vue")
-    },
+    
     {
       path: "/error",
       name: "error",
